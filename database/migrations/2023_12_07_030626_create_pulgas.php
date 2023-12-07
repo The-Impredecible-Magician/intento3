@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('pulgas', function (Blueprint $table) {
             $table->id();
+            $table->string('miguel');
+            $table->string('angel');
             $table->timestamps();
+
+            $table->foreignId('id_miguel')
+            ->nullable()
+            ->constrained('miguel')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
         });
     }
 
