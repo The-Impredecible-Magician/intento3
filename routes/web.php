@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MkController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('cursos', function() {
-    return "Otra cosita mk";
-});
+Route::get('cursos', HomeController::class);
+
+Route::get('mk', MkController::class);
 
 Route::get('cursos/create', function(){
     return "Here you could create whatever you want";
