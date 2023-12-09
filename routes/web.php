@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MkController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,28 +15,21 @@ use App\Http\Controllers\MkController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('cursos', HomeController::class);
+Route::get('/', HomeController::class);
 
 Route::get('mk', MkController::class);
 
-Route::get('cursos/create', function(){
-    return "Here you could create whatever you want";
-});
+Route::get('cursos', [CursoController::class, 'index']);
 
-/*Route::get('cursos/{curso}', function($curso){
-    return "welcome to: $curso course";
-});*/
+Route::get('cursos/create', [CursoController::class, 'create']);
 
-Route::get('cursos/{curso}/{categoria?}', function($curso, $categoria = null) {
+Route::get('cursos/{curso}', [CursoController::class, 'show']);
+
+/*Route::get('cursos/{curso}/{categoria?}', function($curso, $categoria = null) {
     if($categoria){
         return "welcome to: $curso course in the $categoria category";
     }
     else{return "welcome to: $curso course";
     }
     
-});
+});*/
