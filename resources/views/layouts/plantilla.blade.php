@@ -11,7 +11,6 @@
     <!-- header -->
     <!-- nav -->
     @yield('content')
-    
     <!-- footer -->
     @yield('mk')
     <!-- script -->
