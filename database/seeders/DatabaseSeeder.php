@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(CamaSeeder::class);
+        $this->call(UserSeeder::class);
 
 
     }
